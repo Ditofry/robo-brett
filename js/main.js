@@ -92,8 +92,8 @@ $(document).ready(function () {
        threeProps.camera.position.y = threeProps.cameraY;
        threeProps.camera.position.x = 0;
 
-       var gui = new dat.GUI();
-       gui.add(controls, 'cameraTilt', 100, 2000).listen();
+    //    var gui = new dat.GUI();
+    //    gui.add(controls, 'cameraTilt', 100, 2000).listen();
 
        threeProps.renderer.setPixelRatio(window.devicePixelRatio);
        threeProps.renderer.setSize(window.innerWidth, window.innerHeight);
@@ -101,7 +101,7 @@ $(document).ready(function () {
 
        threeProps.stats.domElement.style.position = "absolute";
        threeProps.stats.domElement.style.bottom = "0px";
-       document.body.appendChild(threeProps.stats.domElement);
+    //    document.body.appendChild(threeProps.stats.domElement);
        window.addEventListener("resize", onWindowResize, false);
      }
 
