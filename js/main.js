@@ -35,7 +35,7 @@ $(document).ready(function () {
          scene: new THREE.Scene(),
          renderer: new THREE.CanvasRenderer(),
          geometry: new THREE.Geometry(),
-         cameraY: 280,
+         cameraY: 480,
          stats: new Stats()
      };
 
@@ -120,7 +120,7 @@ $(document).ready(function () {
      }
 
      function render() {
-       // threeProps.camera.lookAt(new THREE.Vector3(0, -controls.cameraTilt, 0));
+       threeProps.camera.lookAt(new THREE.Vector3(0, -controls.cameraTilt, 0));
        var cameraZ = threeProps.camera.position.z;
 
        const time = Date.now() * 0.00001;

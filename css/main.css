@@ -136,7 +136,7 @@ body {
   float: left;
   width: 40px;
   height: 40px;
-  background: url(/img/button_play.png) no-repeat center center;
+  background: url(/robo-brett/img/button_play.png) no-repeat center center;
   background-size: 100%;
   background-color: white;
 }
@@ -145,7 +145,7 @@ body {
   float: left;
   width: 40px;
   height: 40px;
-  background: url(/img/button_pause.png) no-repeat center center;
+  background: url(/robo-brett/img/button_pause.png) no-repeat center center;
   background-size: 100%;
   background-color: white;
 }
