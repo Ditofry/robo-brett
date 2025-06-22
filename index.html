@@ -15,45 +15,7 @@
     <body>
         <div id="container"></div>
 
-        <!-- <audio id="audioElement" src="./audio/OdeszaAboveTheMiddle.mp3"></audio> -->
-        <!-- <div id="audio-controls"> -->
-          <!-- <div id="play-button" onclick="document.getElementById('audioElement').play()"><h1>WHATTA</h1></div> -->
-          <!-- <div id="pause-button" onclick="document.getElementById('audioElement').pause()"><h1>WOAH</h1></div> -->
-        <!-- </div> -->
-        <figure>
-            <figcaption>Listen to the T-Rex:</figcaption>
-            <audio id="audioElement" controls src="/audio/OdeszaAboveTheMiddle.mp3"></audio>
-            <a href="/audio/OdeszaAboveTheMiddle.mp3"> Download audio </a>
-        </figure>
-		<script type="x-shader/x-vertex" id="vertexshader">
-
-			attribute float scale;
-
-			void main() {
-
-				vec4 mvPosition = modelViewMatrix * vec4( position, 1.0 );
-
-				gl_PointSize = scale * ( 300.0 / - mvPosition.z );
-
-				gl_Position = projectionMatrix * mvPosition;
-
-			}
-
-		</script>
-
-		<script type="x-shader/x-fragment" id="fragmentshader">
-
-			uniform vec3 color;
-
-			void main() {
-
-				if ( length( gl_PointCoord - vec2( 0.5, 0.5 ) ) > 0.475 ) discard;
-
-				gl_FragColor = vec4( color, 1.0 );
-
-			}
-
-		</script>
+        <audio id="audioElement" controls src="/audio/OdeszaAboveTheMiddle.mp3"></audio>
         <script type="module" src="/src/main.js"></script>
     </body>
 </html>
