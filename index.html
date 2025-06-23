@@ -11,28 +11,10 @@
 
         <link rel="stylesheet" href="css/normalize.css">
         <link rel="stylesheet" href="css/main.css">
-        <script src="js/vendor/modernizr-2.8.3.min.js"></script>
-        <script src="js/vendor/d3.min.js"></script>
     </head>
     <body>
         <div id="container"></div>
-
-        <audio id="audioElement" src="./audio/GoldenYears.mp3"></audio>
-        <div id="audio-controls">
-          <div id="play-button" onclick="document.getElementById('audioElement').play()"></div>
-          <div id="pause-button" onclick="document.getElementById('audioElement').pause()"></div>
-        </div>
-
-        <script src="https://ajax.googleapis.com/ajax/libs/jquery/2.1.3/jquery.min.js"></script>
-        <script>window.jQuery || document.write('<script src="js/vendor/jquery-1.11.2.min.js"><\/script>')</script>
-        <script src="https://s3-us-west-2.amazonaws.com/s.cdpn.io/244633/three.min.js"></script>
-        <script src="https://s3-us-west-2.amazonaws.com/s.cdpn.io/244633/CanvasRenderer.js"></script>
-        <script src="https://s3-us-west-2.amazonaws.com/s.cdpn.io/244633/Detector.js"></script>
-        <script src="https://s3-us-west-2.amazonaws.com/s.cdpn.io/244633/Projector.js"></script>
-        <script src="https://s3-us-west-2.amazonaws.com/s.cdpn.io/244633/Stats.js"></script>
-        <script src="https://s3-us-west-2.amazonaws.com/s.cdpn.io/244633/dat.gui.js"></script>
-        <script src="https://cdnjs.cloudflare.com/ajax/libs/tweenjs/0.6.2/tweenjs.min.js"></script>
-        <script src="js/plugins.js"></script>
-        <script src="js/main.js"></script>
+        <audio id="audioElement" controls src="/audio/OdeszaAboveTheMiddle.mp3"></audio>
+        <script type="module" src="/src/main.js"></script>
     </body>
 </html>
