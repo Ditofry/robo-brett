@@ -1,5 +1,8 @@
 import * as THREE from 'three';
 
+// TMP
+document.getElementById("audioElement").src = `${import.meta.env.BASE_URL}LetsDance.mp3`;
+
 const scene = new THREE.Scene();
 const camera = new THREE.PerspectiveCamera(75, window.innerWidth / window.innerHeight, 0.1, 5000);
 
