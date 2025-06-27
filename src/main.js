@@ -1,8 +1,5 @@
 import * as THREE from 'three';
 
-// TMP
-document.getElementById("audioElement").src = `${import.meta.env.BASE_URL}LetsDance.mp3`;
-
 const scene = new THREE.Scene();
 const camera = new THREE.PerspectiveCamera(75, window.innerWidth / window.innerHeight, 0.1, 5000);
 
@@ -23,6 +20,13 @@ const audioContext = new AudioContext(),
     audioElement = document.getElementById('audioElement'),
     audioSource = audioContext.createMediaElementSource(audioElement),
     analyser = audioContext.createAnalyser();
+
+audioElement.src = `${import.meta.env.BASE_URL}ToxicCaves.mp3`;
+const playBtn = document.getElementById("play-btn");
+
+playBtn.addEventListener('click', () => {
+  audioElement.play();
+})
 
 audioSource.connect(analyser);
 audioSource.connect(audioContext.destination);
