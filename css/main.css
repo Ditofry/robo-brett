@@ -97,6 +97,7 @@ textarea {
 
 body {
   width: 100%;
+  background-color: #000;
   overflow: hidden;
 }
 
@@ -324,4 +325,15 @@ body {
     h3 {
         page-break-after: avoid;
     }
+}
+
+button {
+  padding: 0.75em 1.5em;
+  font-size: 1rem;
+  font-weight: 600;
+  color: white;
+  background: #8b5cf6;
+  border: none;
+  border-radius: 0.5em;
+  cursor: pointer;
 }

@@ -1,7 +1,10 @@
 import * as THREE from 'three';
 
+let audioBound = false;
 const scene = new THREE.Scene();
 const camera = new THREE.PerspectiveCamera(75, window.innerWidth / window.innerHeight, 0.1, 5000);
+const setList = ['ToxicCaves.mp3', 'LetsDance.mp3', 'OdeszaAboveTheMiddle.mp3']
+const songChoice = setList[Math.floor(Math.random() * 100) % setList.length]
 
 camera.position.z = 135;
 camera.position.y = 22
@@ -16,23 +19,38 @@ const rowCount = 120;
 const spacing = 1.5;
 const particleCount = colCount * rowCount;
 
-const audioContext = new AudioContext(),
-    audioElement = document.getElementById('audioElement'),
-    audioSource = audioContext.createMediaElementSource(audioElement),
-    analyser = audioContext.createAnalyser();
+// Chromium browsers don't let you wire all this up before user interaction...
+let audioContext,
+    audioElement,
+    audioSource,
+    analyser;
 
-audioElement.src = `${import.meta.env.BASE_URL}ToxicCaves.mp3`;
 const playBtn = document.getElementById("play-btn");
+const pauseBtn = document.getElementById("pause-btn");
 
 playBtn.addEventListener('click', () => {
+  if (!audioBound) {
+    audioContext = new AudioContext();
+    audioElement = document.getElementById('audioElement');
+    audioSource = audioContext.createMediaElementSource(audioElement);
+    analyser = audioContext.createAnalyser();
+
+    audioSource.connect(analyser);
+    audioSource.connect(audioContext.destination);
+    
+    audioElement.src = import.meta.env.BASE_URL + songChoice;
+    
+    audioBound = true;
+  }
+  
   audioElement.play();
 })
 
-audioSource.connect(analyser);
-audioSource.connect(audioContext.destination);
+pauseBtn.addEventListener('click', () => {
+  audioElement?.pause && audioElement.pause();
+});
 
 const frequencyData = new Uint8Array(colCount);
-
 const geometry = new THREE.BufferGeometry();
 const positions = new Float32Array(particleCount * 3);
 
@@ -54,7 +72,9 @@ scene.add(points);
 
 function animate() {
   const positionsArray = geometry.attributes.position.array;
-  analyser.getByteFrequencyData(frequencyData);
+  if (audioBound) {
+    analyser.getByteFrequencyData(frequencyData);
+  }
 
   let i = 0;
   for (let row = 0; row < rowCount; row++) {
